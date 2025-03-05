@@ -25,8 +25,6 @@ if git diff --quiet HEAD origin/$BRANCH; then
     exit 0
 else
     echo "Changes detected! Pulling latest code..."
-    git reset --hard origin/$BRANCH
-    git pull origin $BRANCH
 fi
 
 echo "Updating Frappe..."
@@ -48,5 +46,6 @@ docker exec -it "$CONTAINER_NAME" bash -c "
     bench restart
 "
 
-
+git reset --hard origin/$BRANCH
+git pull origin $BRANCH
 docker logs -f "$CONTAINER_NAME"
