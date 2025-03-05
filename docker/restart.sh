@@ -2,6 +2,7 @@
 
 APP_PATH="/root/tuyen/lms/docker"
 BRANCH="master"
+SITE_NAME="lms.demo"
 
 CONTAINER_NAME=$(docker ps --format "{{.Names}}" | grep frappe)
 
@@ -28,8 +29,11 @@ fi
 
 echo "Updating Frappe..."
 docker exec -it "$CONTAINER_NAME" bash -c "
-    cd /home/frappe/frappe-bench
-    bench update --reset
+    cd /home/frappe/frappe-bench/lms
+    git reset --hard
+    git pull
+    bench update --patch
+    bench --site "$SITE_NAME" migrate
     bench restart
 "
 

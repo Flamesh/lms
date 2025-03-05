@@ -29,13 +29,13 @@ bench get-app https://5kywa1k3r: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@github.
 
 bench new-site lms.demo \
 --force \
---mariadb-root-password duyanhda0 \
+--mariadb-root-password 123 \
 --admin-password admin \
 --no-mariadb-socket
-
-bench --site lms.localhost install-app lms
-bench --site lms.localhost set-config developer_mode 1
-bench --site lms.localhost clear-cache
-bench use lms.localhost
+bench --site lms.demo add-to-hosts
+bench --site lms.demo install-app lms
+bench --site lms.demo set-config developer_mode 1
+bench --site lms.demo clear-cache
+bench use lms.demo
 
 bench start
