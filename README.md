@@ -3,7 +3,7 @@
 <img src=".github/lms-logo.png" alt="Frappe Learning logo" width="80" height="80"/>
 <h1>Frappe Learning</h1>
 
-**Easy to use, open source, Learning Management System**
+**YUDHNA TEST Easy to use, open source, Learning Management System**
 
 ![Tests](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/vandxn/main&style=flat&logo=cypress)
 

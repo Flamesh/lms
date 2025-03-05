@@ -24,11 +24,12 @@ bench set-redis-socketio-host redis:6379
 sed -i '/redis/d' ./Procfile
 sed -i '/watch/d' ./Procfile
 
-bench get-app lms
+bench get-app https://5kywa1k3r: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@github.com/Flamesh/lms.git
 
-bench new-site lms.localhost \
+
+bench new-site lms.demo \
 --force \
---mariadb-root-password 123 \
+--mariadb-root-password duyanhda0 \
 --admin-password admin \
 --no-mariadb-socket
 
