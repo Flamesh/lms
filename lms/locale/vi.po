@@ -2650,7 +2650,7 @@ msgstr ""
 #. Name of a DocType
 #: lms/job/doctype/job_settings/job_settings.json
 msgid "Job Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #. Label of the job_title (Data) field in DocType 'Job Opportunity'
 #. Label of the job_title (Data) field in DocType 'LMS Job Application'
@@ -2663,7 +2663,7 @@ msgstr ""
 #: frontend/src/pages/JobDetail.vue:10 frontend/src/pages/Jobs.vue:8
 #: lms/lms/doctype/lms_settings/lms_settings.json
 msgid "Jobs"
-msgstr ""
+msgstr "Công việc"
 
 #: frontend/src/components/LiveClass.vue:58
 #: lms/templates/upcoming_evals.html:15
@@ -2867,7 +2867,7 @@ msgstr ""
 #. Name of a DocType
 #: lms/lms/doctype/lms_settings/lms_settings.json
 msgid "LMS Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #. Name of a DocType
 #: lms/lms/doctype/lms_sidebar_item/lms_sidebar_item.json
@@ -3078,15 +3078,15 @@ msgstr ""
 
 #: frontend/src/components/Modals/FCVerfiyCodeModal.vue:6
 msgid "Login to Frappe Cloud"
-msgstr ""
+msgstr "Đăng nhập vào Frappe"
 
 #: frontend/src/components/UserDropdown.vue:208
 msgid "Login to Frappe Cloud?"
-msgstr ""
+msgstr "Đăng nhập vào Frappe ?"
 
 #: frontend/src/pages/JobDetail.vue:48
 msgid "Login to apply"
-msgstr ""
+msgstr "Đăng nhập để áp dụng"
 
 #: lms/templates/emails/payment_reminder.html:23
 msgid "Looking forward to seeing you enrolled!"
@@ -3644,7 +3644,7 @@ msgstr "Chưa lưu"
 
 #: frontend/src/pages/Notifications.vue:54
 msgid "Nothing to see here."
-msgstr ""
+msgstr "Không có thông báo gì"
 
 #. Label of the notifications (Check) field in DocType 'LMS Settings'
 #: lms/lms/doctype/lms_settings/lms_settings.json
@@ -3653,7 +3653,7 @@ msgstr "Thông báo"
 
 #: lms/lms/widgets/NoPreviewModal.html:30
 msgid "Notify me when available"
-msgstr ""
+msgstr "Thông báo cho tôi khi có thể"
 
 #: frontend/src/pages/BatchForm.vue:157
 msgid "Number of seats available"
@@ -3672,7 +3672,7 @@ msgstr ""
 #. Option for the 'Medium' (Select) field in DocType 'LMS Batch'
 #: lms/lms/doctype/lms_batch/lms_batch.json
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 #: lms/templates/emails/certification.html:16
 msgid "Once again, congratulations on this significant accomplishment."
@@ -3911,7 +3911,7 @@ msgstr ""
 #. Settings'
 #: lms/lms/doctype/lms_settings/lms_settings.json
 msgid "Payment Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #: frontend/src/pages/Billing.vue:21
 msgid "Payment for "
@@ -6049,7 +6049,7 @@ msgstr "Bài nộp đã được lưu. Giáo viên sẽ trả kết quả trong 
 #. Name of a DocType
 #: lms/lms/doctype/zoom_settings/zoom_settings.json
 msgid "Zoom Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #: frontend/src/components/StudentHeatmap.vue:6
 msgid "activities"

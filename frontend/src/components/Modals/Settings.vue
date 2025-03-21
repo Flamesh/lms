@@ -104,39 +104,39 @@ const branding = createResource({
 const tabsStructure = computed(() => {
 	return [
 		{
-			label: 'Settings',
+			label: 'Cài đặt',
 			hideLabel: true,
 			items: [
 				{
-					label: 'General',
+					label: 'Chung',
 					icon: 'Wrench',
 					fields: [
 						{
-							label: 'Enable Learning Paths',
+							label: 'Đường dẫn',
 							name: 'enable_learning_paths',
 							description:
-								'This will enforce students to go through programs assigned to them in the correct order.',
+								'Điều này sẽ buộc học viên phải học theo đúng thứ tự các chương trình được chỉ định cho họ.',
 							type: 'checkbox',
 						},
 						{
-							label: 'Allow Guest Access',
+							label: 'Cho phép người ngoài',
 							name: 'allow_guest_access',
 							description:
-								'If enabled, users can access the course and batch lists without logging in.',
+								'Nếu bật, người dùng có thể xem danh sách khóa học và lớp mà không cần đăng nhập.',
 							type: 'checkbox',
 						},
 						{
-							label: 'Send calendar invite for evaluations',
+							label: 'Gửi lời mời lịch cho đánh giá',
 							name: 'send_calendar_invite_for_evaluations',
 							description:
-								'If enabled, it sends google calendar invite to the student for evaluations.',
+								'Nếu bật, hệ thống sẽ gửi lời mời Google Calendar cho học viên để tham gia đánh giá.',
 							type: 'checkbox',
 						},
 						{
-							label: 'Unsplash Access Key',
+							label: 'Khóa truy cập Unsplash',
 							name: 'unsplash_access_key',
 							description:
-								'Optional. If this is set, students can pick a cover image from the unsplash library for their profile page. https://unsplash.com/documentation#getting-started.',
+								'Tùy chọn. Nếu được thiết lập, học viên có thể chọn ảnh bìa từ thư viện Unsplash cho trang cá nhân của họ. https://unsplash.com/documentation#getting-started.',
 							type: 'password',
 						},
 					],
@@ -186,15 +186,15 @@ const tabsStructure = computed(() => {
 			],
 		},
 		{
-			label: 'Customise',
+			label: 'Tùy chỉnh',
 			hideLabel: false,
 			items: [
 				{
-					label: 'Branding',
+					label: 'Thương hiệu',
 					icon: 'Blocks',
 					fields: [
 						{
-							label: 'Brand Name',
+							label: 'Tên thương hiệu',
 							name: 'app_name',
 							type: 'text',
 						},
@@ -209,24 +209,24 @@ const tabsStructure = computed(() => {
 							type: 'Upload',
 						},
 						{
-							label: 'Footer Logo',
+							label: 'Logo chân trang',
 							name: 'footer_logo',
 							type: 'Upload',
 						},
 						{
-							label: 'Address',
+							label: 'Địa chỉ',
 							name: 'address',
 							type: 'textarea',
 							rows: 2,
 						},
 						{
-							label: 'Footer "Powered By"',
+							label: "Chân trang 'Cung cấp bởi'",
 							name: 'footer_powered',
 							type: 'textarea',
 							rows: 4,
 						},
 						{
-							label: 'Copyright',
+							label: 'Bản quyền',
 							name: 'copyright',
 							type: 'text',
 						},
@@ -235,7 +235,7 @@ const tabsStructure = computed(() => {
 				{
 					label: 'Menu',
 					icon: 'PanelLeftIcon',
-					description: 'Choose the items you want to show in the sidebar',
+					description: 'Chọn các mục bạn muốn hiển thị trong menu chính',
 					fields: [
 						{
 							label: 'Khóa học',
@@ -243,12 +243,7 @@ const tabsStructure = computed(() => {
 							type: 'checkbox',
 						},
 						{
-							label: 'Batches',
-							name: 'batches',
-							type: 'checkbox',
-						},
-						{
-							label: "Chứng chỉ học viên",
+							label: 'Chứng chỉ học viên',
 							name: 'certified_participants',
 							type: 'checkbox',
 						},
@@ -256,40 +251,40 @@ const tabsStructure = computed(() => {
 							type: 'Column Break',
 						},
 						{
-							label: 'Jobs',
+							label: 'Công việc',
 							name: 'jobs',
 							type: 'checkbox',
 						},
 						{
-							label: 'Statistics',
+							label: 'Dữ liệu',
 							name: 'statistics',
 							type: 'checkbox',
 						},
 						{
-							label: 'Notifications',
+							label: 'Thông báo',
 							name: 'notifications',
 							type: 'checkbox',
 						},
 					],
 				},
 				{
-					label: 'Email Templates',
+					label: 'Mẫu email',
 					icon: 'MailPlus',
 					fields: [
 						{
-							label: 'Batch Confirmation Template',
+							label: 'Mẫu xác nhận lớp',
 							name: 'batch_confirmation_template',
 							doctype: 'Email Template',
 							type: 'Link',
 						},
 						{
-							label: 'Certification Template',
+							label: 'Mẫu chứng nhận',
 							name: 'certification_template',
 							doctype: 'Email Template',
 							type: 'Link',
 						},
 						{
-							label: 'Assignment Submission Template',
+							label: 'Mẫu nộp bài tập',
 							name: 'assignment_submission_template',
 							doctype: 'Email Template',
 							type: 'Link',
@@ -297,22 +292,22 @@ const tabsStructure = computed(() => {
 					],
 				},
 				{
-					label: 'Signup',
+					label: 'Đăng ký',
 					icon: 'LogIn',
 					fields: [
 						{
-							label: 'Custom Content',
+							label: 'Nội dung tùy chỉnh',
 							name: 'custom_signup_content',
 							type: 'Code',
 							mode: 'htmlmixed',
 							rows: 10,
 						},
 						{
-							label: 'Ask for Occupation',
+							label: 'Hỏi về nghề nghiệp',
 							name: 'user_category',
 							type: 'checkbox',
 							description:
-								'Enable this option to ask users to select their occupation during the signup process.',
+								'Bật tùy chọn này để yêu cầu người dùng chọn nghề nghiệp của họ trong quá trình đăng ký.',
 						},
 					],
 				},

@@ -13,7 +13,7 @@
 			</Button>
 			<TabButtons
 				class="inline-block"
-				:buttons="[{ label: 'Unread', active: true }, { label: 'Read' }]"
+				:buttons="[{ label: 'Chưa đọc', active: true }, { label: 'Đã dọc' }]"
 				v-model="activeTab"
 			/>
 		</div>

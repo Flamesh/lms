@@ -81,7 +81,7 @@
 			<div class="leading-5 w-2/5 text-center">
 				{{
 					__(
-						'There are no courses matching the criteria. Keep an eye out, fresh learning experiences are on the way soon!'
+						'Không tìm thấy khóa học nào. Hãy thử tìm kiếm khóa học khác hoặc tạo khóa học mới.'
 					)
 				}}
 			</div>
