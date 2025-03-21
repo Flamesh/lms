@@ -15,10 +15,12 @@ bench init --skip-redis-config-generation frappe-bench
 cd frappe-bench
 
 # Use containers instead of localhost
-bench set-mariadb-host root
+bench set-mariadb-host mariadb
 bench set-redis-cache-host redis:6379
 bench set-redis-queue-host redis:6379
 bench set-redis-socketio-host redis:6379
+
+
 
 # Remove redis, watch from Procfile
 sed -i '/redis/d' ./Procfile
