@@ -144,58 +144,43 @@ const tabsStructure = computed(() => {
 			],
 		},
 		{
-			label: 'Settings',
+			label: 'Cài đặt',
 			hideLabel: true,
 			items: [
 				{
-					label: 'Payment Gateway',
+					label: 'Cổng thanh toán',
 					icon: 'DollarSign',
 					description:
-						'Configure the payment gateway and other payment related settings',
+						'Chọn cổng thanh toán mà bạn muốn sử dụng để thanh toán cho các khóa học.',
 					fields: [
 						{
-							label: 'Payment Gateway',
+							label: 'Cổng thanh toán',
 							name: 'payment_gateway',
 							type: 'Link',
 							doctype: 'Payment Gateway',
 						},
 						{
-							label: 'Default Currency',
+							label: 'Mặc định',
 							name: 'default_currency',
 							type: 'Link',
 							doctype: 'Currency',
-						},
-						{
-							label: 'Apply GST for India',
-							name: 'apply_gst',
-							type: 'checkbox',
-						},
-						{
-							label: 'Show USD equivalent amount',
-							name: 'show_usd_equivalent',
-							type: 'checkbox',
-						},
-						{
-							label: 'Apply rounding on equivalent',
-							name: 'apply_rounding',
-							type: 'checkbox',
 						},
 					],
 				},
 			],
 		},
 		{
-			label: 'Lists',
+			label: 'Danh sách',
 			hideLabel: false,
 			items: [
 				{
-					label: 'Members',
-					description: 'Manage the members of your learning system',
+					label: 'Thành viên',
+					description: 'Quản lý các thành viên của hệ thống học tập của bạn',
 					icon: 'UserRoundPlus',
 				},
 				{
-					label: 'Categories',
-					description: 'Manage the members of your learning system',
+					label: 'Danh mục',
+					description: 'Quan lý danh mục của hệ thống học tập của bạn',
 					icon: 'Network',
 				},
 			],
@@ -248,12 +233,12 @@ const tabsStructure = computed(() => {
 					],
 				},
 				{
-					label: 'Sidebar',
+					label: 'Menu',
 					icon: 'PanelLeftIcon',
 					description: 'Choose the items you want to show in the sidebar',
 					fields: [
 						{
-							label: 'Courses',
+							label: 'Khóa học',
 							name: 'courses',
 							type: 'checkbox',
 						},
@@ -263,7 +248,7 @@ const tabsStructure = computed(() => {
 							type: 'checkbox',
 						},
 						{
-							label: 'Certified Participants',
+							label: "Chứng chỉ học viên",
 							name: 'certified_participants',
 							type: 'checkbox',
 						},
