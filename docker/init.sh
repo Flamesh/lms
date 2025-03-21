@@ -15,7 +15,7 @@ bench init --skip-redis-config-generation frappe-bench
 cd frappe-bench
 
 # Use containers instead of localhost
-bench set-mariadb-host mariadb
+bench set-mariadb-host root
 bench set-redis-cache-host redis:6379
 bench set-redis-queue-host redis:6379
 bench set-redis-socketio-host redis:6379
@@ -37,5 +37,7 @@ bench --site lms.demo install-app lms
 bench --site lms.demo set-config developer_mode 1
 bench --site lms.demo clear-cache
 bench use lms.demo
+bench import-translations vi apps/lms/lms/locale/vi.po
+bench set-config -g lang vi
 
-bench start
+bench start 
