@@ -30,7 +30,7 @@
 					class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:items-center justify-between mb-5"
 				>
 					<div class="text-xl text-ink-gray-9 font-semibold">
-						{{ __('Find the perfect job for you') }}
+						Tìm việc tốt cho bạn
 					</div>
 					<div class="grid grid-cols-2 gap-2">
 						<FormControl
