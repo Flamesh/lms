@@ -7,7 +7,7 @@
 				</div>
 				<Badge
 					v-if="isDirty"
-					:label="__('Not Saved')"
+					:label="'Chưa lưu'"
 					variant="subtle"
 					theme="orange"
 				/>
@@ -20,7 +20,7 @@
 			<SettingFields :fields="fields" :data="data.data" />
 			<div class="flex flex-row-reverse mt-auto">
 				<Button variant="solid" :loading="saveSettings.loading" @click="update">
-					{{ __('Update') }}
+					Cập nhật
 				</Button>
 			</div>
 		</div>

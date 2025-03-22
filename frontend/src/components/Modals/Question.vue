@@ -15,7 +15,7 @@
 							class="w-3 h-3 cursor-pointer"
 						/>
 						<label for="existing" class="cursor-pointer">
-							{{ __('Add an existing question') }}
+							Thêm một câu hỏi đã tạo
 						</label>
 					</div>
 
@@ -28,7 +28,7 @@
 							class="w-3 h-3 cursor-pointer"
 						/>
 						<label for="new" class="cursor-pointer">
-							{{ __('Create a new question') }}
+							Tạo một câu hỏi mới
 						</label>
 					</div>
 				</div>

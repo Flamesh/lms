@@ -11,12 +11,12 @@
 		<div class="w-1/2 mx-auto py-5">
 			<div class="">
 				<div class="text-lg font-semibold mb-4">
-					{{ __('Details') }}
+					Chi tiết
 				</div>
 				<div class="space-y-4 mb-4">
 					<FormControl
 						v-model="batch.title"
-						:label="__('Title')"
+						:label="'Tiêu đề'"
 						:required="true"
 						class="w-full"
 					/>
@@ -145,7 +145,7 @@
 
 			<div class="mb-10">
 				<div class="text-lg font-semibold mb-4">
-					{{ __('Settings') }}
+					Cài Đặt
 				</div>
 				<div class="grid grid-cols-2 gap-10">
 					<div>
@@ -186,7 +186,7 @@
 							class="mb-4"
 						/>
 						<Link
-							doctype="LMS Category"
+							doctype="Danh mục LMS"
 							:label="__('Category')"
 							v-model="batch.category"
 						/>
@@ -196,7 +196,7 @@
 
 			<div class="">
 				<div class="text-lg font-semibold mb-4">
-					{{ __('Payment') }}
+					Thanh toán
 				</div>
 				<div>
 					<FormControl

@@ -126,7 +126,7 @@ const userDropdownOptions = computed(() => {
 	return [
 		{
 			icon: User,
-			label: 'My Profile',
+			label: 'Hồ sơ',
 			onClick: () => {
 				router.push(`/user/${userResource.data?.username}`)
 			},
@@ -136,7 +136,7 @@ const userDropdownOptions = computed(() => {
 		},
 		{
 			icon: theme.value === 'light' ? Moon : Sun,
-			label: 'Toggle Theme',
+			label: 'Thay đổi chủ đề',
 			onClick: () => {
 				toggleTheme()
 			},
@@ -152,7 +152,7 @@ const userDropdownOptions = computed(() => {
 		},
 		{
 			icon: Settings,
-			label: 'Settings',
+			label: 'Cài đặt',
 			onClick: () => {
 				settingsStore.isSettingsOpen = true
 			},
@@ -162,16 +162,16 @@ const userDropdownOptions = computed(() => {
 		},
 		{
 			icon: FrappeCloudIcon,
-			label: 'Login to Frappe Cloud',
+			label: 'Login',
 			onClick: () => {
 				$dialog({
-					title: __('Login to Frappe Cloud?'),
+					title: __('Login?'),
 					message: __(
-						'Are you sure you want to login to your Frappe Cloud dashboard?'
+						'Bạn có chắc chắn muốn đăng nhập vào bảng điều khiển Frappe Cloud của mình không?'
 					),
 					actions: [
 						{
-							label: __('Confirm'),
+							label: __('Đồng ý'),
 							variant: 'solid',
 							onClick(close) {
 								loginToFrappeCloud()

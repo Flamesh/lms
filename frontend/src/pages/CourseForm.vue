@@ -12,12 +12,12 @@
 								<Trash2 class="w-4 h-4 stroke-1.5" />
 							</template>
 							<span>
-								{{ __('Delete') }}
+								Xóa
 							</span>
 						</Button>
 						<Button variant="solid" @click="submitCourse()" class="ml-2">
 							<span>
-								{{ __('Save') }}
+								Lưu
 							</span>
 						</Button>
 					</div>
@@ -25,11 +25,11 @@
 				<div class="mt-5 mb-10">
 					<div class="container mb-5">
 						<div class="text-lg font-semibold mb-4">
-							{{ __('Details') }}
+							Chi tiết
 						</div>
 						<FormControl
 							v-model="course.title"
-							:label="__('Title')"
+							:label="'Tiêu đề'"
 							class="mb-4"
 							:required="true"
 						/>
@@ -158,7 +158,7 @@
 					</div>
 					<div class="container border-t">
 						<div class="text-lg font-semibold mt-5 mb-4">
-							{{ __('Settings') }}
+							Cài Đặt
 						</div>
 						<div class="grid grid-cols-2 gap-10 mb-4">
 							<div
@@ -466,20 +466,18 @@ const deleteCourse = createResource({
 		}
 	},
 	onSuccess() {
-		showToast(__('Success'), __('Course deleted successfully'), 'check')
+		showToast('Thành công', 'Xóa khóa học thành công', 'check')
 		router.push({ name: 'Courses' })
 	},
 })
 
 const trashCourse = () => {
 	$dialog({
-		title: __('Delete Course'),
-		message: __(
-			'Deleting the course will also delete all its chapters and lessons. Are you sure you want to delete this course?'
-		),
+		title: 'Xóa khóa học',
+		message: 'Bạn có chắc chắn muốn xóa khóa học này?',
 		actions: [
 			{
-				label: __('Delete'),
+				label: 'Xóa',
 				theme: 'red',
 				variant: 'solid',
 				onClick(close) {

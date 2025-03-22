@@ -4,7 +4,7 @@
 			<div class="flex h-[calc(100vh_-_8rem)]">
 				<div class="flex w-52 shrink-0 flex-col bg-surface-gray-2 p-2">
 					<h1 class="mb-3 px-2 pt-2 text-lg font-semibold text-ink-gray-9">
-						{{ __('Settings') }}
+						Cài đặt
 					</h1>
 					<div v-for="tab in tabs" :key="tab.label">
 						<div

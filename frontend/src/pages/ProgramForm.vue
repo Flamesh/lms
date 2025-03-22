@@ -8,7 +8,7 @@
 		</Button>
 	</header>
 	<div v-if="program.doc" class="pt-5 px-5 w-3/4 mx-auto space-y-10">
-		<FormControl v-model="program.doc.title" :label="__('Title')" />
+		<FormControl v-model="program.doc.title" :label="'Tiêu đề'" />
 
 		<!-- Courses -->
 		<div>

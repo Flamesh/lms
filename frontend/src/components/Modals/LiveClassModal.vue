@@ -20,7 +20,7 @@
 						<FormControl
 							type="text"
 							v-model="liveClass.title"
-							:label="__('Title')"
+							:label="'Tiêu đề'"
 							class="mb-4"
 							:required="true"
 						/>

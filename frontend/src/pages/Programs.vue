@@ -113,7 +113,7 @@
 		}"
 	>
 		<template #body-content>
-			<FormControl :label="__('Title')" v-model="title" />
+			<FormControl :label="'Tiêu đề'" v-model="title" />
 		</template>
 	</Dialog>
 </template>

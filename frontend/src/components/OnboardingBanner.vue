@@ -27,7 +27,7 @@
 					1
 				</span>
 				<span class="text-lg font-semibold">
-					{{ __('Create a course') }}
+					Tạo khóa học
 				</span>
 			</div>
 			<div
@@ -53,7 +53,7 @@
 					2
 				</span>
 				<span class="text-lg font-semibold">
-					{{ __('Add a chapter') }}
+					Thêm chương
 				</span>
 			</div>
 			<div
@@ -78,7 +78,7 @@
 					3
 				</span>
 				<span class="text-lg font-semibold">
-					{{ __('Add a lesson') }}
+					Thêm bài học
 				</span>
 			</div>
 		</div>

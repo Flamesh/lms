@@ -39,7 +39,7 @@
 		<!-- Details -->
 		<div class="mb-8">
 			<div class="font-semibold mb-4">
-				{{ __('Details') }}
+				Chi tiết
 			</div>
 			<FormControl
 				v-model="quiz.title"
@@ -76,7 +76,7 @@
 				<!-- Settings -->
 				<div class="mb-8">
 					<div class="font-semibold mb-4">
-						{{ __('Settings') }}
+						Cài Đặt
 					</div>
 					<div class="grid grid-cols-3 gap-5 my-4">
 						<FormControl
