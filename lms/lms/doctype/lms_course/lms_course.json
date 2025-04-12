@@ -298,7 +298,7 @@
   }
  ],
  "make_attachments_public": 1,
- "modified": "2025-03-04 15:43:25.151554",
+ "modified": "2025-04-02 08:37:33.493067",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Course",
@@ -327,8 +327,33 @@
    "role": "Course Creator",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Instructor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
