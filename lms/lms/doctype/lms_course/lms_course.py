@@ -201,3 +201,7 @@ def reindex_exercises(doc):
 	course = frappe.get_doc("LMS Course", course_data["name"])
 	course.reindex_exercises()
 	frappe.msgprint("All exercises in this course have been re-indexed.")
+
+@frappe.whitelist()
+def test_array():
+    return [1, 2, 3]
