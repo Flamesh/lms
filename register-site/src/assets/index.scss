@@ -1,0 +1,74 @@
+.link-text {
+  cursor: pointer;
+  color: #007bff;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0px 5px;
+  p {
+    margin-left: 0px;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.background-image {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background: url("../assets/image/background.png");
+  background-position: center !important;
+}
+.invalid-feedback {
+  color: red;
+  font-size: 12px;
+  margin-top: -6px;
+}
+
+.form-group {
+  height: 90px;
+}
+
+.form-check {
+  margin-top: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  .invalid-feedback {
+    position: absolute;
+    
+  }
+}
+
+.terms-page {
+  // make a dot before all li tag
+  li::before {
+    content: "• ";
+    color: rgb(255, 255, 255); // You can change the color as needed
+  }
+
+  h3 {
+    margin: 20px 0px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  a {
+    color: rgb(77, 139, 253);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+.apple-button {
+  &:hover {
+    background-color: #363636 !important;
+  }
+}
+
+.login-button {
+  width: 100% !important;
+}
