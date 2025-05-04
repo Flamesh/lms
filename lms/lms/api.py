@@ -26,7 +26,7 @@ from frappe.integrations.frappe_providers.frappecloud_billing import (
 	is_fc_site,
 	current_site_info,
 )
-
+from lms.lms.custom_enum.enum import DefaultLMSRole
 
 @frappe.whitelist()
 def autosave_section(section, code):
@@ -174,10 +174,11 @@ def get_user_info():
 		as_dict=1,
 	)
 	user["roles"] = frappe.get_roles(user.name)
-	user.is_instructor = "Course Creator" in user.roles
-	user.is_moderator = "Moderator" in user.roles
-	user.is_evaluator = "Batch Evaluator" in user.roles
-	user.is_student = "LMS Student" in user.roles
+	defaultRoles = [DefaultLMSRole.PRINCIPAL.value, DefaultLMSRole.VICE_PRINCIPAL.value, DefaultLMSRole.HOMEROOM_TEACHER.value, DefaultLMSRole.SUBJECT_TEACHER.value, DefaultLMSRole.DEPARTMENT_HEAD.value]
+	user.is_instructor = any (role in user.roles for role in defaultRoles)
+	user.is_moderator = any (role in user.roles for role in defaultRoles)
+	user.is_evaluator = any (role in user.roles for role in defaultRoles)
+	user.is_student = DefaultLMSRole.STUDENT.value in user.roles
 	user.is_fc_site = is_fc_site()
 	user.is_system_manager = "System Manager" in user.roles
 	if user.is_fc_site and user.is_system_manager:

@@ -111,7 +111,7 @@
    "link_fieldname": "chapter"
   }
  ],
- "modified": "2025-02-03 15:23:17.125617",
+ "modified": "2025-05-05 03:33:46.060067",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "Course Chapter",
@@ -131,14 +131,16 @@
    "write": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "LMS Student",
-   "select": 1,
-   "share": 1
+   "role": "Principal",
+   "share": 1,
+   "write": 1
   },
   {
    "create": 1,
@@ -148,11 +150,56 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Course Creator",
+   "role": "Vice Principal",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Homeroom Teacher",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Subject Teacher",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Department Head",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student"
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "title",
  "show_title_field_in_link": 1,
  "sort_field": "modified",

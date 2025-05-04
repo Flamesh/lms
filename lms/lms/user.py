@@ -5,6 +5,7 @@ from frappe.website.utils import cleanup_page_name
 from frappe.website.utils import is_signup_disabled
 from frappe.utils import random_string, escape_html
 from lms.lms.utils import get_country_code
+from lms.lms.custom_enum.enum import DefaultLMSRole
 
 
 def validate_username_duplicates(doc, method):
@@ -20,7 +21,7 @@ def validate_username_duplicates(doc, method):
 
 
 def after_insert(doc, method):
-	doc.add_roles("LMS Student")
+	doc.add_roles(DefaultLMSRole.STUDENT)
 
 
 @frappe.whitelist(allow_guest=True)

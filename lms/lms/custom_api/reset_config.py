@@ -354,7 +354,7 @@ def add_score_fields_to_assignment_submission():
 @frappe.whitelist()
 def purge_roles_except_admin_guest():
     roles_to_keep = ["Administrator", "Guest", "System Manager"]
-
+    deleted_roles = frappe.get_all('DocPerm', filters={"role": ["not in", roles_to_keep]}, pluck="role")
     roles_to_delete = frappe.get_all(
         "Role",
         filters={"name": ["not in", roles_to_keep]},
@@ -364,9 +364,14 @@ def purge_roles_except_admin_guest():
     for role in roles_to_delete:
         frappe.db.delete("Has Role", {"role": role})
         frappe.db.delete("DefaultValue", {"defvalue": role})
-        frappe.db.delete("Custom DocPerm", {"role": role})
-        frappe.db.delete("User Permission", {"role": role})
+        frappe.db.delete("Custom DocPerm", {"role": role})  
+        frappe.db.delete("DocPerm", {"role": role})
         frappe.delete_doc("Role", role, force=1, ignore_permissions=True)
+    for role in deleted_roles:
+        frappe.db.delete("Has Role", {"role": role})
+        frappe.db.delete("DefaultValue", {"defvalue": role})
+        frappe.db.delete("Custom DocPerm", {"role": role})  
+        frappe.db.delete("DocPerm", {"role": role})
     frappe.db.commit()
 
     return {
@@ -378,7 +383,7 @@ def purge_roles_except_admin_guest():
 def add_permission_if_not_exists(
     doctype,
     role,
-    read=0,
+    read=0, 
     write=0,
     create=0,
     delete=0,
@@ -388,8 +393,9 @@ def add_permission_if_not_exists(
     share=0,
     only_if_creator=0
 ):
-    exists = frappe.db.exists("Custom DocPerm", {
+    exists = frappe.db.exists("DocPerm", {
         "parent": doctype,
+        "parenttype": "DocType",
         "role": role,
         "permlevel": 0,
         "read": read,
@@ -404,8 +410,9 @@ def add_permission_if_not_exists(
     })
     if not exists:
         frappe.get_doc({
-            "doctype": "Custom DocPerm",
+            "doctype": "DocPerm",
             "parent": doctype,
+            "parenttype": "DocType",
             "role": role,
             "permlevel": 0,
             "read": read,
@@ -418,15 +425,51 @@ def add_permission_if_not_exists(
             "share": share,
             "if_owner": only_if_creator
         }).insert(ignore_permissions=True)
+    
+    doc = frappe.get_doc("DocType", doctype)
+    updated = False
+
+    for perm in doc.permissions:
+        if perm.role == role and perm.permlevel == 0:
+            perm.read = read
+            perm.write = write
+            perm.create = create
+            perm.delete = delete
+            perm.submit = submit
+            perm.cancel = cancel
+            perm.amend = amend
+            perm.share = share
+            perm.if_owner = only_if_creator
+            updated = True
+            break
+
+    if not updated:
+        # Nếu chưa có thì thêm mới
+        doc.append("permissions", {
+            "role": role,
+            "permlevel": 0,
+            "read": read,
+            "write": write,
+            "create": create,
+            "delete": delete,
+            "submit": submit,
+            "cancel": cancel,
+            "amend": amend,
+            "share": share,
+            "if_owner": only_if_creator,
+        })
+
+    doc.save(ignore_permissions=True)
+
 
 @frappe.whitelist()
 def assign_lms_permissions():
     all_doctypes = ["LMS Program", "LMS Course", "Course Chapter", "Course Lesson", "LMS Quiz", "LMS Assignment"]
 
     for dt in all_doctypes:
-        add_permission_if_not_exists(dt, DefaultLMSRole.PRINCIPAL.value, read=1, write=1, create=1, delete=1, submit=1,cancel=1,amend=1,share=1)
-        add_permission_if_not_exists(dt, DefaultLMSRole.VICE_PRINCIPAL.value, read=1, write=1, create=1, delete=1, submit=1,cancel=1,amend=1,share=1)
-        add_permission_if_not_exists(dt, DefaultLMSRole.HOMEROOM_TEACHER.value, read=1, write=1, create=1, delete=1, submit=1,cancel=1,amend=1,share=1)
+        add_permission_if_not_exists(dt, DefaultLMSRole.PRINCIPAL.value, read=1, write=1, create=1, delete=1, share=1)
+        add_permission_if_not_exists(dt, DefaultLMSRole.VICE_PRINCIPAL.value, read=1, write=1, create=1, delete=1, share=1)
+        add_permission_if_not_exists(dt, DefaultLMSRole.HOMEROOM_TEACHER.value, read=1, write=1, create=1, delete=1, share=1)
 
     add_permission_if_not_exists("LMS Assignment Submission", DefaultLMSRole.PRINCIPAL.value, read=1)
     add_permission_if_not_exists("LMS Assignment Submission", DefaultLMSRole.VICE_PRINCIPAL.value, read=1)
@@ -436,19 +479,19 @@ def assign_lms_permissions():
     add_permission_if_not_exists("LMS Quiz Submission", DefaultLMSRole.VICE_PRINCIPAL.value, read=1)
     add_permission_if_not_exists("LMS Quiz Submission", DefaultLMSRole.HOMEROOM_TEACHER.value, read=1)
 
-    add_permission_if_not_exists("LMS Program Enrollment Request", DefaultLMSRole.HOMEROOM_TEACHER.value, read=1, write=1, create=1, delete=1, submit=1,cancel=1,amend=1,share=1)
+    add_permission_if_not_exists("LMS Program Enrollment Request", DefaultLMSRole.HOMEROOM_TEACHER.value, read=1, write=1, create=1, delete=1, share=1)
     
 
     add_permission_if_not_exists("LMS Program", DefaultLMSRole.SUBJECT_TEACHER.value, read=1)
-    for dt in ["LMS Course", "LMS Chapter", "LMS Lesson", "LMS Quiz", "LMS Assignment"]:
-        add_permission_if_not_exists(dt, DefaultLMSRole.SUBJECT_TEACHER.value, read=1, write=1, create=1, delete=1, submit=1,cancel=1,amend=1,share=1)
-        add_permission_if_not_exists(dt, DefaultLMSRole.DEPARTMENT_HEAD.value, read=1, write=1, create=1, delete=1, submit=1,cancel=1,amend=1,share=1)
+    for dt in ["LMS Course", "Course Chapter", "Course Lesson", "LMS Quiz", "LMS Assignment"]:
+        add_permission_if_not_exists(dt, DefaultLMSRole.SUBJECT_TEACHER.value, read=1, write=1, create=1, delete=1, share=1)
+        add_permission_if_not_exists(dt, DefaultLMSRole.DEPARTMENT_HEAD.value, read=1, write=1, create=1, delete=1, share=1)
 
     for dt in all_doctypes:
         add_permission_if_not_exists(dt, DefaultLMSRole.STUDENT.value, read=1)
     add_permission_if_not_exists("LMS Assignment Submission", DefaultLMSRole.STUDENT.value, read=1, create=1)
     add_permission_if_not_exists("LMS Quiz Submission", DefaultLMSRole.STUDENT.value, read=1, create=1)
-  
+
     return {
         "status": "ok",
         "message" : "success"

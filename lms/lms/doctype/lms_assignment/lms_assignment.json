@@ -72,7 +72,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-24 09:36:31.464508",
+ "modified": "2025-05-05 03:33:46.489177",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Assignment",
@@ -99,7 +99,55 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Moderator",
+   "role": "Principal",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vice Principal",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Homeroom Teacher",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Subject Teacher",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Department Head",
    "share": 1,
    "write": 1
   },
@@ -109,10 +157,10 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "LMS Student",
-   "share": 1
+   "role": "Student"
   }
  ],
+ "row_format": "Dynamic",
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

@@ -42,7 +42,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-19 15:49:45.847566",
+ "modified": "2025-05-05 03:33:45.721819",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Program",
@@ -69,19 +69,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Moderator",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Course Creator",
+   "role": "Principal",
    "share": 1,
    "write": 1
   },
@@ -93,6 +81,46 @@
    "report": 1,
    "role": "Guest",
    "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vice Principal",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Homeroom Teacher",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Subject Teacher"
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student"
   }
  ],
  "row_format": "Dynamic",
