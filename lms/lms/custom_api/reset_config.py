@@ -362,7 +362,12 @@ def purge_roles_except_admin_guest():
     )
 
     for role in roles_to_delete:
+        frappe.db.delete("Has Role", {"role": role})
+        frappe.db.delete("DefaultValue", {"defvalue": role})
+        frappe.db.delete("Custom DocPerm", {"role": role})
+        frappe.db.delete("User Permission", {"role": role})
         frappe.delete_doc("Role", role, force=1, ignore_permissions=True)
+    frappe.db.commit()
 
     return {
         "status": "ok",
