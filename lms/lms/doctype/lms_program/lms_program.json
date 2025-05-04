@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "is_whitelist",
   "program_courses",
   "program_members"
  ],
@@ -30,11 +31,18 @@
    "label": "Title",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_whitelist",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Gi\u00e1o tr\u00ecnh ch\u00ednh th\u1ee9c"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-28 22:06:16.742867",
+ "modified": "2025-04-19 15:49:45.847566",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Program",
@@ -76,8 +84,18 @@
    "role": "Course Creator",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
