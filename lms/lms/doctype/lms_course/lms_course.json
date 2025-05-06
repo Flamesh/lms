@@ -272,6 +272,18 @@
    "fieldtype": "Link",
    "label": "Evaluator",
    "options": "Course Evaluator"
+  },
+  {
+   "columns": 0,
+   "fieldname": "academic_level",
+   "fieldtype": "Table",
+   "hidden": 0,
+   "label": "C\u1ea5p h\u1ecdc",
+   "options": "LMS Child Table Academic Level",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "unique": 0
   }
  ],
  "is_published_field": "published",
@@ -298,7 +310,7 @@
   }
  ],
  "make_attachments_public": 1,
- "modified": "2025-05-05 03:33:45.861939",
+ "modified": "2025-05-06 23:06:54.513861",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Course",

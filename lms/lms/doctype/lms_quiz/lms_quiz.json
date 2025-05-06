@@ -134,11 +134,23 @@
    "fieldname": "duration",
    "fieldtype": "Data",
    "label": "Duration (in minutes)"
+  },
+  {
+   "columns": 0,
+   "fieldname": "academic_level",
+   "fieldtype": "Table",
+   "hidden": 0,
+   "label": "C\u1ea5p h\u1ecdc",
+   "options": "LMS Child Table Academic Level",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "unique": 0
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-05 03:33:46.346127",
+ "modified": "2025-05-06 23:06:54.995150",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Quiz",

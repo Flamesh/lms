@@ -1,6 +1,9 @@
 import frappe
 from lms.lms.custom_enum.enum import DefaultLMSRole
 from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
+import json
+import os
+import frappe
 
 @frappe.whitelist()
 def init_all_lms_setup():
@@ -17,6 +20,10 @@ def init_all_lms_setup():
         results["add_academic_level_field_to_doctypes"] = add_academic_level_field_to_doctypes()
     except Exception as e:
         results["add_academic_level_field_to_doctypes"] = f"Errot: {str(e)}"
+    try:
+        results["patch_lms_program_with_code_and_description"] = patch_lms_program_with_code_and_description()
+    except Exception as e:
+        results["patch_lms_program_with_code_and_description"] = f"Error: {str(e)}"
     try:
         results["create_lms_department"] = create_lms_department()
     except Exception as e:
@@ -46,6 +53,121 @@ def init_all_lms_setup():
     except Exception as e:
         results["assign_lms_permissions"] = f"Error: {str(e)}"
     return results
+
+@frappe.whitelist()
+def init_field_after_reset_config():
+    dtTargets = ["LMS Course", "LMS Program", "LMS Quiz", "LMS Assignment", "LMS Assignment Submission"]
+    for dt in dtTargets:
+        promote_custom_fields_to_standard(dt)
+    make_fields_optional("LMS Program", ["title", "code"])
+
+def make_fields_optional(doctype, fieldnames):
+    for fieldname in fieldnames:
+        custom_field = frappe.db.get("Custom Field", {"dt": doctype, "fieldname": fieldname})
+        if custom_field:
+            frappe.db.set_value("Custom Field", custom_field.name, "reqd", 0)
+            frappe.db.commit()
+            continue
+
+        doc = frappe.get_doc("DocType", doctype)
+        updated = False
+
+        for df in doc.fields:
+            if df.fieldname in fieldnames and df.reqd:
+                df.reqd = 0
+                updated = True
+                print(f"Set optional for {df.fieldname} in {doctype}")
+
+        if updated:
+            doc.save()
+            frappe.db.commit()
+            frappe.clear_cache(doctype=doctype)
+        else:
+            print("No changes needed.")
+
+    frappe.clear_cache(doctype=doctype)
+    print("Fields updated to be optional.")
+
+@frappe.whitelist()
+def promote_custom_fields_to_standard(doctype_name):
+    custom_fields = frappe.get_all("Custom Field", filters={"dt": doctype_name}, fields="*")
+    if not custom_fields:
+        print("Không có Custom Field nào trong Doctype:", doctype_name)
+        return
+
+    module_path = frappe.get_module_path(frappe.get_meta(doctype_name).module)
+    doctype_path = os.path.join(module_path, "doctype", frappe.scrub(doctype_name))
+    json_file = os.path.join(doctype_path, f"{frappe.scrub(doctype_name)}.json")
+
+    if not os.path.exists(json_file):
+        print("Không tìm thấy file json của doctype:", json_file)
+        return
+
+    with open(json_file, "r") as f:
+        doc_json = json.load(f)
+
+    existing_fields = {f["fieldname"] for f in doc_json.get("fields", [])}
+    added = 0
+
+    for cf in custom_fields:
+        if cf.fieldname not in existing_fields:
+            field = {k: cf.get(k) for k in [
+                "fieldname", "label", "fieldtype", "options", "reqd", "unique", "default",
+                "depends_on", "read_only", "hidden", "precision", "columns"
+            ] if cf.get(k) is not None}
+            doc_json["fields"].append(field)
+            added += 1
+
+    if added:
+        with open(json_file, "w") as f:
+            f.write(frappe.as_json(doc_json))
+        print(f"Đã thêm {added} Custom Field vào Doctype JSON.")
+
+    else:
+        print("Không có gì mới để thêm.")
+
+    # Xoá Custom Field sau khi đã đưa vào json
+    for cf in custom_fields:
+        frappe.delete_doc("Custom Field", cf.name, force=1)
+    print("Đã xoá Custom Field.")
+
+def create_safe_fields(fields_dict, doctype):
+    fields = list(fields_dict.values())
+    for field in fields:
+        if not frappe.db.exists("Custom Field", {"dt": doctype, "fieldname": field["fieldname"]}):
+            create_custom_fields({doctype: [field]})
+
+@frappe.whitelist()
+def patch_lms_program_with_code_and_description():
+    doctype = "LMS Program"
+
+    frappe.db.sql("""UPDATE `tabDocField` 
+                     SET `unique` = 0 
+                     WHERE `parent` = %s AND `fieldname` = 'title'""", doctype)
+
+    fields = {
+        "code": {
+            "fieldname": "code",
+            "label": "Mã lớp",
+            "fieldtype": "Data",
+            "reqd": 1,
+        },
+        "description": {
+            "fieldname": "description",
+            "label": "Mô tả",
+            "fieldtype": "Small Text",
+        }
+    }
+
+    create_safe_fields(fields, doctype)
+
+    frappe.clear_cache(doctype=doctype)
+    frappe.db.commit()
+    return {
+        "status": "ok",
+        "message": "Đã cập nhật trường 'academic_level' thành Link tới LMS Academic Level."
+    }
+
 
 @frappe.whitelist()
 def init_default_lms_roles():

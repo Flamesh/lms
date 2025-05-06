@@ -7,9 +7,11 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "is_whitelist",
   "program_courses",
-  "program_members"
+  "program_members",
+  "description",
+  "code",
+  "academic_level"
  ],
  "fields": [
   {
@@ -29,20 +31,28 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1,
    "unique": 1
   },
   {
-   "default": "1",
-   "fieldname": "is_whitelist",
-   "fieldtype": "Check",
-   "in_list_view": 1,
-   "label": "Gi\u00e1o tr\u00ecnh ch\u00ednh th\u1ee9c"
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "M\u00f4 t\u1ea3"
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "M\u00e3 l\u1edbp"
+  },
+  {
+   "fieldname": "academic_level",
+   "fieldtype": "Table",
+   "label": "C\u1ea5p h\u1ecdc",
+   "options": "LMS Child Table Academic Level"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-05 03:33:45.721819",
+ "modified": "2025-05-07 00:24:54.961207",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Program",
