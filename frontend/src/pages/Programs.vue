@@ -141,6 +141,8 @@ import CourseCard from '@/components/CourseCard.vue'
 import { useRouter } from 'vue-router'
 import { showToast } from '@/utils'
 import { useSettings } from '@/stores/settings'
+import VueCookies from 'vue-cookies'
+
 
 const user = inject('$user')
 const showDialog = ref(false)
@@ -167,12 +169,18 @@ const programs = createResource({
 })
 
 const createProgram = (close) => {
+	const sid = VueCookies.get('sid')
+	const full_name = VueCookies.get('full_name')
+	const user_id = VueCookies.get('user_id')
+	const user_lang = VueCookies.get('user_lang')
+	const system_user = VueCookies.get('system_user')
+	const headers = {
+		'Content-Type': 'application/json',
+		Cookie: `sid=${sid}; system_user=${system_user}; full_name=${full_name}; user_id=${user_id}; user_lang=${user_lang};`,
+	}
 	fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.add_program', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Cookie': 'sid=b9f947cf7c14e99a2418faef8b03f530dfd8121fcd70cfefdfa23412; system_user=no; full_name=Dang; user_id=tuyenkbhb%40gmail.com; user_lang=vn;',
-		},
+		method: 'GET',
+		headers: headers,
 		body: JSON.stringify({
 			title: title.value,
 			code: code.value,
