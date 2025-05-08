@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bc097b0a.css",
+    "main.js": "/static/js/main.20b14302.js",
+    "static/media/background.png": "/static/media/background.6974be223ff82dcfcc63.png",
+    "static/media/quanticogame-logo.webp": "/static/media/quanticogame-logo.2a43407c27bad7ff88f2.webp",
+    "index.html": "/index.html",
+    "main.bc097b0a.css.map": "/static/css/main.bc097b0a.css.map",
+    "main.20b14302.js.map": "/static/js/main.20b14302.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc097b0a.css",
+    "static/js/main.20b14302.js"
+  ]
+}
