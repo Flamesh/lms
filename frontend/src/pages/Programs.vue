@@ -170,10 +170,12 @@ onMounted(() => {
 
 const programs = fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.get_program_list', {
 	credentials: 'omit',
+	method: 'GET',
 	headers: {
 		'Content-Type': 'application/json',
 	},
 }).then((res) => res.json()).then((data) => {
+	console.log(data)
 	return data.message
 }).catch((err) => {
 	console.error(err)
