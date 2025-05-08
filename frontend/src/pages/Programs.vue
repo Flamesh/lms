@@ -181,7 +181,7 @@ const createProgram = (close) => {
 		Cookie: `sid=${sid}; system_user=${system_user}; full_name=${full_name}; user_id=${user_id}; user_lang=${user_lang};`,
 	}
 	fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.add_program', {
-		method: 'GET',
+		method: 'POST',
 		headers: headers,
 		body: JSON.stringify({
 			title: title.value,
