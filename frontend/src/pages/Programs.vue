@@ -113,7 +113,15 @@
 		}"
 	>
 		<template #body-content>
-			<FormControl :label="'Tiêu đề'" v-model="title" />
+			<FormControl :label="__('Title')" v-model="title"  />
+			<FormControl :label="__('Code')" v-model="code" />
+			<FormControl
+				:type="'textarea'"
+				type="textarea"
+				v-model="description"
+				:placeholder="__('Description')"
+				:label="__('Description')"
+			/>
 		</template>
 	</Dialog>
 </template>
@@ -138,6 +146,8 @@ const user = inject('$user')
 const showDialog = ref(false)
 const router = useRouter()
 const title = ref('')
+const code = ref('')
+const description = ref('')
 const settings = useSettings()
 
 onMounted(() => {
@@ -161,6 +171,8 @@ const createProgram = (close) => {
 		doc: {
 			doctype: 'LMS Program',
 			title: title.value,
+			code: code.value,
+			description: description.value,
 		},
 	}).then((res) => {
 		router.push({ name: 'ProgramForm', params: { programName: res.name } })

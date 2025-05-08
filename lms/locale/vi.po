@@ -2965,7 +2965,7 @@ msgstr ""
 #. Label of the lesson_title (Data) field in DocType 'Scheduled Flow'
 #: lms/lms/doctype/scheduled_flow/scheduled_flow.json
 msgid "Lesson Title"
-msgstr ""
+msgstr "Tiều đề"
 
 #. Label of the lessons (Table) field in DocType 'Course Chapter'
 #. Group in Course Chapter's connections
@@ -5310,7 +5310,7 @@ msgstr ""
 
 #: frontend/src/pages/Programs.vue:95
 msgid "There are no programs available at the moment. Keep an eye out, fresh learning experiences are on the way soon!"
-msgstr ""
+msgstr "Hiện không có chương trình nào"
 
 #: lms/lms/doctype/lms_batch/lms_batch.py:94
 msgid "There are no seats available in this batch."
