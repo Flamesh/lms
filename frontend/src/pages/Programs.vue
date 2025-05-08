@@ -174,15 +174,20 @@ const createProgram = (close) => {
 	const user_id = Cookie.get('user_id')
 	const user_lang = Cookie.get('user_lang')
 	const system_user = Cookie.get('system_user')
-	console.log(sid, full_name, user_id, user_lang, system_user)
-	console.log(sid, decodeURIComponent(document.cookie))
+	// console.log(sid, full_name, user_id, user_lang, system_user)
+	// console.log(sid, decodeURIComponent(document.cookie))
+	
 	const headers = {
 		'Content-Type': 'application/json',
 		Cookie: `sid=${sid}; system_user=${system_user}; full_name=${full_name}; user_id=${user_id}; user_lang=${user_lang};`,
 	}
+	console.log(headers.Cookie)
 	fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.add_program', {
 		method: 'POST',
-		headers: headers,
+		headers: {
+			'Content-Type': 'application/json',
+			Cookie: `sid=${sid}; system_user=${system_user}; full_name=${full_name}; user_id=${user_id}; user_lang=${user_lang};`,
+		},
 		body: JSON.stringify({
 			title: title.value,
 			code: code.value,
