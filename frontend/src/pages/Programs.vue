@@ -167,16 +167,49 @@ const programs = createResource({
 })
 
 const createProgram = (close) => {
-	call('frappe.client.insert', {
-		doc: {
-			doctype: 'LMS Program',
+	// fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.add_program', {
+	// 	method: 'POST',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 		Authorization: `token ${user.data?.api_key}:${user.data?.api_secret}`,
+	// 	},
+	// 	body: JSON.stringify({
+	// 		title: title.value,
+	// 		code: code.value,
+	// 		description: description.value,
+	// 	}),
+	// })
+	createResource({
+		url: 'lms.lms.custom_api.program.add_program',
+		method: 'POST',
+		data: {
 			title: title.value,
 			code: code.value,
 			description: description.value,
 		},
 	}).then((res) => {
-		router.push({ name: 'ProgramForm', params: { programName: res.name } })
+		if (res.status === 200) {
+			console.log(res)
+			close()
+			router.push({ name: 'ProgramForm', params: { programName: res.name } })
+		} else {
+			showToast('Error', res.message, 'x')
+		}
+	}).catch((err) => {
+		showToast('Error', err.message, 'x')
+		close()
+		showToast('Error', err.message, 'x')
 	})
+	// call('frappe.client.insert', {
+	// 	doc: {
+	// 		doctype: 'LMS Program',
+	// 		title: title.value,
+	// 		code: code.value,
+	// 		description: description.value,
+	// 	},
+	// }).then((res) => {
+	// 	router.push({ name: 'ProgramForm', params: { programName: res.name } })
+	// })
 }
 
 const enrollMember = (program, course) => {
