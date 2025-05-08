@@ -1278,6 +1278,11 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vue-cookies@^1.8.6:
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/vue-cookies/-/vue-cookies-1.8.6.tgz#31b05e39b8c3dfe5012b5013395b4f6b86f86c3a"
+  integrity sha512-e2kYaHj1Y/zVsBSM3KWlOoVJ5o3l4QZjytNU7xdCgmkw3521CMUerqHekBGZKXXC1oRxYljBeeOK2SCel6cKuw==
+
 which@1.2.x:
   version "1.2.14"
   resolved "https://registry.yarnpkg.com/which/-/which-1.2.14.tgz#9a87c4378f03e827cecaf1acdf56c736c01c14e5"

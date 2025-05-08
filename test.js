@@ -1,0 +1,8 @@
+const str =
+    "doc currency=HKD; _ga=GA1.1.290385022.1708446298; _ga_SEREQG5RMN=GS1.1.1713714816.4.1.1713715123.0.0.0; sidebarStatus=1; __FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoiZGFtLWN1b2ktbWluaC10dXllbi1sZS1odWUiLCJhcHBJZCI6IjE6MzQ1ODM2MDc4Njg0OndlYjo1OTJhMWM0YTA0Y2MxYmVmZTM0ODk5Iiwic3RvcmFnZUJ1Y2tldCI6ImRhbS1jdW9pLW1pbmgtdHV5ZW4tbGUtaHVlLmFwcHNwb3QuY29tIiwibG9jYXRpb25JZCI6ImFzaWEtZWFzdDEiLCJhcGlLZXkiOiJBSXphU3lEY2JBUV9GcUdjME1kdnJCbE5JdjE3Z3ljQ29aZkNoOEUiLCJhdXRoRG9tYWluIjoiZGFtLWN1b2ktbWluaC10dXllbi1sZS1odWUuZmlyZWJhc2VhcHAuY29tIiwibWVzc2FnaW5nU2VuZGVySWQiOiIzNDU4MzYwNzg2ODQifSwiX2F1dGhUb2tlblN5bmNVUkwiOiIvX19zZXNzaW9uIn0; v3-admin-vite-token-key=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsib3JpZ2VuZV9oZXJiZG5hIl0sInVzZXJfaWQiOiJlYjA1MTgyZS0wMWJjLTRmM2ItOTI0Yi01N2Y2MDk2YzU2Y2YiLCJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE3Mjk5MjgzNDksImF1dGhvcml0aWVzIjpbIjEiXSwianRpIjoiN2E3NjM5MTAtNDU5OC00NzFmLWJlYTgtZWNlOGUzYTc5OWUwIiwiY2xpZW50X2lkIjoib3JpZ2VuZV9oZXJiZG5hIn0.aeeP4wpkAJF--ug0Bx8fnUyPtkMiGtW7aepuw1yAVuY; learnhouse_current_orgslug=default; ph_phc_5eTGKfeGcwOjhS05omKVvnSP1OBS6w2y5JsOVTYhb0J_posthog=%7B%22distinct_id%22%3A%220195325d-9365-76e8-8564-4ade29a0cb19%22%2C%22%24sesid%22%3A%5B1740308546258%2C%220195325d-9364-733f-9357-965c3390db98%22%2C1740306748260%5D%7D; language=vi; system_user=no; full_name=Dang; user_id=tuyenkbhb%40gmail.com; user_lang=en";
+// decode the string
+const decodedStr = decodeURIComponent(str);
+// split the string by semicolon
+const arr = decodedStr.split("; ");
+// create an object to store the key-value pairs
+const obj = {};

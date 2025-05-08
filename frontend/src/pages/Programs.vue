@@ -169,13 +169,13 @@ const programs = createResource({
 })
 
 const createProgram = (close) => {
-	const sid = Cookie.get('sid')
+	const sid = decodeURIComponent(document.cookie).match('/sid=([^;]+)/');
 	const full_name = Cookie.get('full_name')
 	const user_id = Cookie.get('user_id')
 	const user_lang = Cookie.get('user_lang')
 	const system_user = Cookie.get('system_user')
 	console.log(sid, full_name, user_id, user_lang, system_user)
-	console.log('doc', document.cookie)
+	
 	const headers = {
 		'Content-Type': 'application/json',
 		Cookie: `sid=${sid}; system_user=${system_user}; full_name=${full_name}; user_id=${user_id}; user_lang=${user_lang};`,
