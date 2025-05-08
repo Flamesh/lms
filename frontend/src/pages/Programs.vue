@@ -141,7 +141,7 @@ import CourseCard from '@/components/CourseCard.vue'
 import { useRouter } from 'vue-router'
 import { showToast } from '@/utils'
 import { useSettings } from '@/stores/settings'
-import VueCookies from 'vue-cookies'
+import Cookie from 'js-cookie'
 
 
 const user = inject('$user')
@@ -169,11 +169,11 @@ const programs = createResource({
 })
 
 const createProgram = (close) => {
-	const sid = VueCookies.get('sid')
-	const full_name = VueCookies.get('full_name')
-	const user_id = VueCookies.get('user_id')
-	const user_lang = VueCookies.get('user_lang')
-	const system_user = VueCookies.get('system_user')
+	const sid = Cookie.get('sid')
+	const full_name = Cookie.get('full_name')
+	const user_id = Cookie.get('user_id')
+	const user_lang = Cookie.get('user_lang')
+	const system_user = Cookie.get('system_user')
 	console.log(sid, full_name, user_id, user_lang, system_user)
 	console.log('doc', document.cookie)
 	const headers = {
