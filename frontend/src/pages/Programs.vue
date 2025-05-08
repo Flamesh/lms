@@ -167,41 +167,19 @@ const programs = createResource({
 })
 
 const createProgram = (close) => {
-	// fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.add_program', {
-	// 	method: 'POST',
-	// 	headers: {
-	// 		'Content-Type': 'application/json',
-	// 		Authorization: `token ${user.data?.api_key}:${user.data?.api_secret}`,
-	// 	},
-	// 	body: JSON.stringify({
-	// 		title: title.value,
-	// 		code: code.value,
-	// 		description: description.value,
-	// 	}),
-	// })
-	createResource({
-		url: 'lms.lms.custom_api.program.add_program',
-		method: 'GET',
-		data: {
+	fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.add_program', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Cookie': 'sid=b9f947cf7c14e99a2418faef8b03f530dfd8121fcd70cfefdfa23412; system_user=no; full_name=Dang; user_id=tuyenkbhb%40gmail.com; user_lang=vn;',
+		},
+		body: JSON.stringify({
 			title: title.value,
 			code: code.value,
 			description: description.value,
-		},
-
-	}).then((res) => {
-		if (res.status === 200) {
-			console.log(res)
-			close()
-			router.push({ name: 'ProgramForm', params: { programName: res.name } })
-		} else {
-			console.log(res)
-			showToast('Error', res.message, 'x')
-		}
-	}).catch((err) => {
-		console.log(err)
-		showToast('Error', err.message, 'x')
-		close()
+		}),
 	})
+	
 	// call('frappe.client.insert', {
 	// 	doc: {
 	// 		doctype: 'LMS Program',
