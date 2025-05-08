@@ -165,7 +165,7 @@ onMounted(() => {
 const programs = createResource({
 	url: 'ms.lms.custom_api.program.get_program_list',
 	auto: true,
-	cache: 'programs',
+	method: 'GET',
 })
 
 const createProgram = (close) => {
