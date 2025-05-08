@@ -181,24 +181,26 @@ const createProgram = (close) => {
 	// })
 	createResource({
 		url: 'lms.lms.custom_api.program.add_program',
-		method: 'POST',
+		method: 'GET',
 		data: {
 			title: title.value,
 			code: code.value,
 			description: description.value,
 		},
+
 	}).then((res) => {
 		if (res.status === 200) {
 			console.log(res)
 			close()
 			router.push({ name: 'ProgramForm', params: { programName: res.name } })
 		} else {
+			console.log(res)
 			showToast('Error', res.message, 'x')
 		}
 	}).catch((err) => {
+		console.log(err)
 		showToast('Error', err.message, 'x')
 		close()
-		showToast('Error', err.message, 'x')
 	})
 	// call('frappe.client.insert', {
 	// 	doc: {
