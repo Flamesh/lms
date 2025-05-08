@@ -169,7 +169,7 @@ onMounted(() => {
 // })
 
 const programs = fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.get_program_list', {
-	credentials: 'omit',
+	credentials: 'same-origin',
 	method: 'GET',
 	headers: {
 		'Content-Type': 'application/json',
