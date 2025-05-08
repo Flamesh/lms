@@ -175,8 +175,12 @@ const programs = fetch('http://localhost:8000/api/method/lms.lms.custom_api.prog
 		'Content-Type': 'application/json',
 	},
 }).then((res) => res.json()).then((data) => {
-	console.log(data)
-	return data.message
+	
+	const res = {
+		data: data.message
+	};
+	console.log("programs", res)
+	return res
 }).catch((err) => {
 	console.error(err)
 	showToast('Error', err.messages?.[0] || err, 'x')
