@@ -169,7 +169,7 @@ const programs = createResource({
 })
 
 const createProgram = (close) => {
-	const sid = decodeURIComponent(document.cookie).match('/sid=([^;]+)/');
+	const sid = Cookie.get('sid')
 	const full_name = Cookie.get('full_name')
 	const user_id = Cookie.get('user_id')
 	const user_lang = Cookie.get('user_lang')
