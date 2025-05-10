@@ -27,15 +27,15 @@ services:
     ports:
       - 8000:8000
       - 9000:9000
-  
+    
   register-site:
-    image: node:16-alpine
-    command: sh -c "cd /register-site && npm install && npm run dev"
-    working_dir: /app
+    image: node:18-alpine
+    working_dir: /home/frappe/frappe-bench/apps/lms/register-site
+    command: sh -c "yarn install && yarn run build && yarn start"
     volumes:
-      - ./register-site:/app
+      - ./frontend:/app
     ports:
-      - "8081:3000"
+      - "3000:3000"
     environment:
       - NODE_ENV=development
       - REACT_APP_API_URL=http://localhost:8000

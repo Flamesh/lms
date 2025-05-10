@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+}
+
+.casino-main {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background-color: #00003E;
+}
+
+.casino-main img {
+    width: 14rem;
+    margin: auto;
+    scale: 1.5;
+}
+
+.casino-main img:hover {
+    cursor: pointer;
+}
+
+.casino-image {
+    margin: auto;
+    overflow: hidden;
+}
+
+.casino-image-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, auto);
+}
+
+.casino-logo img{
+    max-width: 200px;
+    height: 30px;
+    width: auto;
+    scale: 1.0;
+}
+
+.casino-logo img:hover{
+    cursor: default;
+}
+
+@media (max-width: 568px) {
+    .logout-text {
+        display: none;
+    }
+}
+
+@media (min-width: 568px) {
+    .casino-image-grid {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+@media (min-width: 1024px) {
+    .casino-image-grid {
+        grid-template-columns: repeat(4, auto);
+    }
+}

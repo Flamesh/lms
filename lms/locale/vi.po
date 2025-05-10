@@ -5715,21 +5715,21 @@ msgstr ""
 
 #: lms/templates/signup-form.html:83
 msgid "Valid email and name required"
-msgstr ""
+msgstr "Email và tên là bắt buộc"
 
 #. Label of the value (Rating) field in DocType 'LMS Batch Feedback'
 #: lms/lms/doctype/lms_batch_feedback/lms_batch_feedback.json
 msgid "Value"
-msgstr ""
+msgstr "Giá trị"
 
 #. Option for the 'Event' (Select) field in DocType 'LMS Badge'
 #: lms/lms/doctype/lms_badge/lms_badge.json
 msgid "Value Change"
-msgstr ""
+msgstr "Thay đổi giá trị"
 
 #: frontend/src/components/Modals/FCVerfiyCodeModal.vue:26
 msgid "Verification Code"
-msgstr ""
+msgstr "Verification Code"
 
 #: frontend/src/components/Modals/FCVerfiyCodeModal.vue:9
 msgid "Verify"
@@ -5746,12 +5746,12 @@ msgstr "Hiển thị"
 
 #: frontend/src/components/Modals/Event.vue:67
 msgid "View Certificate"
-msgstr ""
+msgstr "Xem chứng chỉ"
 
 #. Label of the visibility (Select) field in DocType 'LMS Batch Old'
 #: lms/lms/doctype/lms_batch_old/lms_batch_old.json
 msgid "Visibility"
-msgstr ""
+msgstr "Khả năng hiển thị"
 
 #: frontend/src/components/BatchOverlay.vue:60
 msgid "Visit Batch"
