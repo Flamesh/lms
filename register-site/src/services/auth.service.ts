@@ -62,7 +62,7 @@ export const loginByApple = async (data: ILoginSocial) => {
     return res.data;
   }
 }
-
+const api_url = process.env.REACT_APP_API_URL;
 interface IRegister {
   username: string;
   password: string;
@@ -72,7 +72,7 @@ interface IRegister {
 
 export const registerApi = async (data: IRegister) => {
   const response = await axiosClient.post(
-		"http://localhost:8000//api/method/lms.lms.custom_api.sign_up.sign_up.signup_student",
+		api_url + "/api/method/lms.lms.custom_api.sign_up.sign_up.signup_student",
 		data
 	);
   return response?.data;

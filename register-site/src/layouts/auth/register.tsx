@@ -20,6 +20,8 @@ import { useTranslation } from "react-i18next";
 
 const defaultTheme = createTheme();
 
+const api_url = process.env.REACT_APP_API_URL;
+
 export default function SignIn() {
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = React.useState(false);
@@ -79,7 +81,7 @@ export default function SignIn() {
 			
 			toast.success('Đăng ký thành công');
 			setTimeout(() => { 
-				window.location.href = "http://localhost:8000";
+				window.location.href = api_url + ":8000";
 			}, 2000);
 			if (response === "Email_existed") {
 				toast.error(t("Email already exists, please try another email"));
@@ -99,7 +101,7 @@ export default function SignIn() {
 	const getListProgram = async () => {
 		try {
 			const response = await fetch(
-				"http://localhost:8000/api/method/lms.lms.custom_api.program.get_program_list",
+				api_url + "/api/method/lms.lms.custom_api.program.get_program_list",
 				{
 					method: "GET",
 					headers: {
