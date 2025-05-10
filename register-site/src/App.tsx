@@ -26,17 +26,13 @@ const App = () => {
   useEffect(() => {
     const handleLanguageChange = () => {
       const newLang: string | any = localStorage.getItem('i18nextLng');
-      i18n.changeLanguage(newLang);
+      i18n.changeLanguage('vi');
     };
     window.addEventListener('storage', handleLanguageChange);
     return () => {
       window.removeEventListener('storage', handleLanguageChange);
     };
   }, []);
-
-  // if (window.location.pathname === '/exit') {
-  //   localStorage.clear();
-  // }
 
   return (
     <Routes>

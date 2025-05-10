@@ -72,7 +72,7 @@ interface IRegister {
 
 export const registerApi = async (data: IRegister) => {
   const response = await axiosClient.post(
-		"https://anhdh2.com/api/method/lms.lms.custom_api.sign_up.sign_up.test_sign_up",
+		"http://localhost:8000//api/method/lms.lms.custom_api.sign_up.sign_up.signup_student",
 		data
 	);
   return response?.data;
