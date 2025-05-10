@@ -14,7 +14,10 @@
 			{{ __('New') }}
 		</Button>
 	</header>
-	<div v-if="programs" class="pt-5 px-5">
+	<div v-if="programs.values()?.length > 0" class="pt-5 px-5">
+	{{ 
+		console.log('programs', programs)
+	 }}
 		<div v-for="program in programs.data" class="mb-10">
 			<div class="flex items-center justify-between">
 				<div class="text-xl font-semibold">
@@ -171,7 +174,7 @@ onMounted(async () => {
 			},
 		},
 	)
-	console.log('programs', programs)
+
 	const data = await programs.json()
 	if (data.message) {
 		programs.value = data.message
@@ -180,18 +183,18 @@ onMounted(async () => {
 	}
 })
 
-const programs2 = createResource({
-	url: 'ms.lms.custom_api.program.get_program_list',
-	auto: true,
-	method: 'GET',
-	credentials: 'same-origin',
-	Headers: {
-		Accept: '*/*',
-		'Content-Type': 'application/json',
-	},
-})
+// const programs2 = createResource({
+// 	url: 'ms.lms.custom_api.program.get_program_list',
+// 	auto: true,
+// 	method: 'GET',
+// 	credentials: 'same-origin',
+// 	Headers: {
+// 		Accept: '*/*',
+// 		'Content-Type': 'application/json',
+// 	},
+// })
 
-console.log('programs', programs, programs2)
+// console.log('programs', programs, programs2)
 
 const createProgram = (close) => {
 	const sid = Cookie.get('sid')
