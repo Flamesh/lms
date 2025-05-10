@@ -14,16 +14,19 @@
 			{{ __('New') }}
 		</Button>
 	</header>
-	<div v-if="programs.values()?.length > 0" class="pt-5 px-5">
 	{{ 
 		console.log('programs', programs)
 	 }}
-		<div v-for="program in programs.data" class="mb-10">
+	<div v-if="programs.length > 0" class="pt-5 px-5">
+		<div v-for="program in programs" class="mb-10">
 			<div class="flex items-center justify-between">
 				<div class="text-xl font-semibold">
 					{{ program.name }}
 				</div>
-				<div class="flex items-center space-x-2">
+				<div class="text-xl font-semibold">
+					{{ program.name }}
+				</div>
+				<!-- <div class="flex items-center space-x-2">
 					<Badge
 						v-if="program.members"
 						variant="subtle"
@@ -56,7 +59,7 @@
 							{{ __('Edit') }}
 						</Button>
 					</router-link>
-				</div>
+				</div> -->
 			</div>
 			<div
 				v-if="program.courses?.length"
