@@ -27,20 +27,7 @@ services:
     ports:
       - 8000:8000
       - 9000:9000
-    
-  register-site:
-    image: node:18-alpine
-    working_dir: /home/frappe/frappe-bench/apps/lms/register-site
-    command: sh -c "yarn install && yarn run build && yarn start"
-    volumes:
-      - ./frontend:/app
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=development
-      - REACT_APP_API_URL=http://localhost:8000
-    depends_on:
-      - frappe
+
 
 volumes:
   mariadb-data:
