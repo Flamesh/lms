@@ -77,6 +77,7 @@ export default function SignIn() {
 			
 			toast.success('Đăng ký thành công');
 			setTimeout(() => { 
+				// @ts-ignore
 				window.location.href = api_url;
 			}, 2000);
 			if (response === "Email_existed") {
