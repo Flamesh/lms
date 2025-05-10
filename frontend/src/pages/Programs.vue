@@ -14,7 +14,7 @@
 			{{ __('New') }}
 		</Button>
 	</header>
-	<div v-if="programs.data?.length" class="pt-5 px-5">
+	<div v-if="programs?.length" class="pt-5 px-5">
 		<div v-for="program in programs.data" class="mb-10">
 			<div class="flex items-center justify-between">
 				<div class="text-xl font-semibold">
@@ -175,12 +175,10 @@ const programs = fetch('http://localhost:8000/api/method/lms.lms.custom_api.prog
 		'Content-Type': 'application/json',
 	},
 }).then((res) => res.json()).then((data) => {
-	
 	const res = {
 		data: data.message
 	};
-	console.log("programs", res)
-	return res
+	return data.message
 }).catch((err) => {
 	console.error(err)
 	showToast('Error', err.messages?.[0] || err, 'x')
@@ -199,8 +197,6 @@ const createProgram = (close) => {
 		credentials: 'include',
 		headers: {
 			'Content-Type': 'application/json',
-			"Cookie": `sid=${sid}; system_user=${system_user}; full_name=${full_name}; user_id=${user_id}; user_lang=${user_lang};`,
-			
 		},
 		body: JSON.stringify({
 			title: title.value,
