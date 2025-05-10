@@ -162,11 +162,12 @@ onMounted(() => {
 	}
 })
 
-// const programs = createResource({
-// 	url: 'ms.lms.custom_api.program.get_program_list',
-// 	auto: true,
-// 	method: 'GET',
-// })
+const programs2 = createResource({
+	url: 'ms.lms.custom_api.program.get_program_list',
+	auto: true,
+	method: 'GET',
+	credentials: 'same-origin',
+})
 
 const programs = fetch('http://localhost:8000/api/method/lms.lms.custom_api.program.get_program_list', {
 	credentials: 'same-origin',
@@ -184,6 +185,8 @@ const programs = fetch('http://localhost:8000/api/method/lms.lms.custom_api.prog
 	showToast('Error', err.messages?.[0] || err, 'x')
 	return []
 })
+
+console.log('programs', programs, programs2)
 
 const createProgram = (close) => {
 	const sid = Cookie.get('sid')
