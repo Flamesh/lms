@@ -39,11 +39,7 @@ export default function SignIn() {
 			.max(20, t("Username must not exceed 20 characters") as string),
 		full_name: Yup.string()
 			.trim()
-			.required(t("Full name is required") as string)
-			.matches(
-				/^[a-zA-Z0-9 ]+$/,
-				t("Full name must contain only letters and numbers") as string
-			),
+			.required(t("Full name is required") as string),
 		email: Yup.string()
 			.trim()
 			.required(t("Email is required") as string)
