@@ -77,7 +77,7 @@ export default function SignIn() {
 			
 			toast.success('Đăng ký thành công');
 			setTimeout(() => { 
-				window.location.href = api_url + ":8000";
+				window.location.href = api_url;
 			}, 2000);
 			if (response === "Email_existed") {
 				toast.error(t("Email already exists, please try another email"));
