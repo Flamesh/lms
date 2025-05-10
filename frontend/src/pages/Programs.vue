@@ -14,7 +14,7 @@
 			{{ __('New') }}
 		</Button>
 	</header>
-	<div v-if="programs2.message?.length" class="pt-5 px-5">
+	<div v-if="programs" class="pt-5 px-5">
 		<div v-for="program in programs.data" class="mb-10">
 			<div class="flex items-center justify-between">
 				<div class="text-xl font-semibold">
@@ -161,7 +161,7 @@ onMounted(async () => {
 		router.push({ name: 'Courses' })
 	}
 
-	const programs = fetch(
+	const programs = await fetch(
 		'http://localhost:8000/api/method/lms.lms.custom_api.program.get_program_list',
 		{
 			credentials: 'same-origin',
@@ -171,18 +171,13 @@ onMounted(async () => {
 			},
 		},
 	)
-		.then((res) => res.json())
-		.then((data) => {
-			const res = {
-				data: data.message,
-			}
-			return data.message
-		})
-		.catch((err) => {
-			console.error(err)
-			showToast('Error', err.messages?.[0] || err, 'x')
-			return []
-		})
+	console.log('programs', programs)
+	const data = await programs.json()
+	if (data.message) {
+		programs.value = data.message
+	} else {
+		showToast('Error', data.message, 'x')
+	}
 })
 
 const programs2 = createResource({
@@ -191,9 +186,9 @@ const programs2 = createResource({
 	method: 'GET',
 	credentials: 'same-origin',
 	Headers: {
-		'Accept': '*/*',
+		Accept: '*/*',
 		'Content-Type': 'application/json',
-	}
+	},
 })
 
 console.log('programs', programs, programs2)
